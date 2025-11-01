@@ -131,12 +131,11 @@ void setButton_A()
     }
     break;
 
-    case HUMIDITY_CONTROL:
-      menuState = MAIN_SCREEN;
-    break;
-
     case SET_HUMIDITY:
-      menuState = MAIN_SCREEN;
+      if(humidityThreshold < 100)
+      {
+        humidityThreshold++;
+      }
     break;
   }
 }
@@ -161,11 +160,11 @@ void setButton_B()
       break;
 
     case HUMIDITY_CONTROL:
-    //Befehle
+      menuState = MAIN_SCREEN;
     break;
 
     case SET_HUMIDITY:
-    //Befehle
+      menuState = MAIN_SCREEN;
     break;
   }
 }
@@ -182,12 +181,11 @@ void setButton_C()
     }
     break;
 
-    case HUMIDITY_CONTROL:
-    //Befehle
-    break;
-
     case SET_HUMIDITY:
-    //Befehle
+      if(humidityThreshold > 0)
+      {
+        humidityThreshold--;
+      }
     break;
   }
 }
@@ -259,6 +257,6 @@ void drawHumidityControlScreen()
 void drawSetHumidityScreen()
 {
   display.setCursor(0,40);
-  display.print("set Threshold");
+  display.print("Threshold: ");display.print(humidityThreshold);display.println("%");
 }
 
