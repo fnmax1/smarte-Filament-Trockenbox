@@ -111,7 +111,8 @@ void loop()
 
     case SET_HUMIDITY:
       drawSetHumidityScreen();
-      break;
+      break;  
+
   }
 
   yield();
@@ -259,4 +260,5 @@ void drawSetHumidityScreen()
   display.setCursor(0,40);
   display.print("Threshold: ");display.print(humidityThreshold);display.println("%");
 }
+
 
